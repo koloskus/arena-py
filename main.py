@@ -1,7 +1,5 @@
-import requests
+from channel import Channel
 
-response = requests.get('http://api.are.na/v2/channels/computer-graphics-jjpidmjvw40')
+channel1 = Channel('computer-graphics-jjpidmjvw40')
 
-output = response.json()
-
-print(output['title'])
+print(channel1.title)

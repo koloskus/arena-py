@@ -1,4 +1,5 @@
 import requests
+from user import User
 
 class Channel:
     def __init__(self, slug):
@@ -31,3 +32,4 @@ class Channel:
         self.can_index = c['can_index']
         self.nsfw = c['nsfw?']
         self.user = User(c['user'])
+        print(self.user.id)

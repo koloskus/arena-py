@@ -1,9 +1,9 @@
 import requests
 
 class User:
-    def __init__(self, slug):
-        r = requests.get('http://api.are.na/v2/users/' + slug)
-        c = r.json()
+    def __init__(self, j):
+        #r = requests.get('http://api.are.na/v2/users/' + slug)
+        c = j#r.json()
         self.id = c['id']
         self.created_at = c['created_at']
         self.slug = c['slug']

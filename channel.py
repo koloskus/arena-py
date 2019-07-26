@@ -1,5 +1,6 @@
 import requests
-from user import User
+import user
+import block
 
 class Channel:
     def __init__(self, slug):
@@ -20,7 +21,9 @@ class Channel:
         self.status = c['status']
         self.user_id = c['user_id']
         self.manifest = c['manifest']
-        self.contents = c['contents']
+        self.contents = []
+        for channel_block in c['contents']:
+            self.contents.append(block.Block(channel_block))
         self.base_class = c['base_class']
         #self.page = c['page']
         #self.per = c['per']
@@ -31,5 +34,4 @@ class Channel:
         self.class_name = c['class_name']
         self.can_index = c['can_index']
         self.nsfw = c['nsfw?']
-        self.user = User(c['user'])
-        print(self.user.id)
+        self.user = user.User(c['user'])

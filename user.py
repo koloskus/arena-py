@@ -1,9 +1,7 @@
 import requests
 
 class User:
-    def __init__(self, j):
-        #r = requests.get('http://api.are.na/v2/users/' + slug)
-        c = j#r.json()
+    def __init__(self, c):
         self.id = c['id']
         self.created_at = c['created_at']
         self.slug = c['slug']
@@ -27,3 +25,7 @@ class User:
         self.badge = c['badge']
         self.base_class = c['base_class']
         self.user_class = c['class']
+
+def getUser(slug):
+    r = requests.get('http://api.are.na/v2/users/' + slug)
+    return User(r.json())

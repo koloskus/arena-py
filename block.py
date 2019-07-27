@@ -29,3 +29,7 @@ class Block():
         self.user = user.User(b.get('user'))
         #self.connections = b.get('connections')
         # connections doesn't seem to exist in a block when gathered from Channel['Contents']
+
+def getBlock(id):
+    r = requests.get('http://api.are.na/v2/blocks/' + id)
+    return Block(r.json())

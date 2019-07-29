@@ -16,7 +16,7 @@ class TestUserAPI(object):
     def test_get_users_id_channel(self):
         response = requests.get('http://api.are.na/v2/users/' + str(sample_credentials.user_id) + '/channel')
         if response.status_code == 404:
-            pytest.xfail('API added requirement for authentication')
+            pytest.xfail('Functionality removed from API')
         assert response.status_code == 200
 
     def test_get_users_following(self):
